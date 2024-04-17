@@ -36,7 +36,7 @@ jobs:
           npm install --save-dev node-qunit-phantomjs
           npm install --save-dev qunit
       - name: Test
-        run: node_modules/node-qunit-phantomjs/bin/node-qunit-phantomjs tests.html 
+        run: node_modules/node-qunit-phantomjs/bin/node-qunit-phantomjs test.html 
 
   deploy:
     environment:
