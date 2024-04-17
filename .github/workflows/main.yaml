@@ -22,6 +22,10 @@ concurrency:
 
 jobs:
 
+  test: 
+    name: Test
+    run: node_modules/node-qunit-phantomjs/bin/node-qunit-phantomjs test.html 
+    
   deploy:
     environment:
       name: github-pages
