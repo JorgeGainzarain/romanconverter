@@ -45,30 +45,25 @@ function init() {
 // UI directly. The JSON object contains the result (ok/nok), the value
 // and an error message if needed
 function convertRomanToInteger(roman) {
-
   var response = {
-    value: 0, 
+    value: 0,
     message: '',
-    result: false 
+    result: false
   };
 
-  // Regexp to check if a string is a valid roman number
   var romanNumeralRegex = new RegExp(
     /^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$/
   );
 
-  // Convert the string to uppercase so we just to handle uppercase strings
   roman = roman.toUpperCase();
   var regexResult = romanNumeralRegex.test(roman);
 
-  // Either the string is not a valid roman number or is empty
   if (!regexResult || roman.length <= 0) {
-    response.message = INVALID_ROMAN;
+    response.message = "Please enter a valid roman";
     return response;
   }
 
   var arr = ["I", "V", "X", "L", "C", "D", "M"];
-
   var values = {
     I: 1,
     V: 5,
@@ -80,7 +75,6 @@ function convertRomanToInteger(roman) {
   };
 
   var sum = 0;
-
   var prevIndex = 0;
 
   for (var i = roman.length - 1; i >= 0; i--) {
