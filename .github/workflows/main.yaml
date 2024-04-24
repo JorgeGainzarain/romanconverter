@@ -35,4 +35,4 @@ jobs:
         run: | 
           npm install --save-dev qunit
       - name: Test
-        run: node_modules/qunit/bin/qunit test.js
+        run: node_modules/node-qunit-phantomjs/bin/node-qunit-phantomjs test.html
