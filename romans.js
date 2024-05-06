@@ -205,5 +205,5 @@ function init() {
 module.exports = {
   convertRomanToInteger,
   convertIntegerToRoman
-}
+};
 
