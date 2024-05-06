@@ -167,10 +167,12 @@ function lessThan9(num, mapping) {
     return mapping[5] + mapping[1].repeat(num % 5);
   } else if (num === 4) {
     return mapping[1] + mapping[5];
+  } else if (num === 1) {
+    return mapping[1];
   } else {
     return mapping[1].repeat(num);
   }
-};
+}
 
 function greaterThan9(num, mapping) {
   if (num >= 10 && num < 50) {
