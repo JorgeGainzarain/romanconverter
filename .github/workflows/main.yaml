@@ -37,7 +37,7 @@ jobs:
           npm install --save-dev node-qunit-phantomjs
           npm install --save-dev qunit
       - name: Test
-        run: node_modules/node-qunit-phantomjs/bin/node-qunit-phantomjs test.html 
+        run: node_modules/node-qunit-phantomjs/bin/node-qunit-phantomjs tests.html 
         
   lint:
     runs-on: ubuntu-latest   
@@ -50,7 +50,7 @@ jobs:
       - name: Install Dependencies
         run: npm i eslint@5.16.0
       - name: Lint
-        run: node_modules/eslint/bin/eslint.js triangle.js  
+        run: node_modules/eslint/bin/eslint.js romans.js  
 
   deploy:
     environment:
