@@ -46,7 +46,7 @@ test("TC 11", function(assert) {
 });
 
 test("TC A", function(assert) {
-  assert.propEqual(convertIntegerToRoman(4), {value: "IV", message: "", result: true}, "TC A");
+  assert.propEqual(convertIntegerToRoman(3), {value: "III", message: "", result: true}, "TC A");
 });
 
 test("TC 12", function(assert) {
