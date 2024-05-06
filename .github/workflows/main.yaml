@@ -26,9 +26,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20.x'
-      - run: node tests.js
       - name: Run QUnit tests
-        run: node_modules/node-qunit-phantomjs/bin/node-qunit-phantomjs tests.html
+        run: node_modules/node-qunit-phantomjs/bin/node-qunit-phantomjs test.html
 
   build:
     needs: [setup, test]
