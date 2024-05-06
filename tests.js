@@ -1,3 +1,14 @@
+// Import QUnit from CDN
+const script = document.createElement('script');
+script.src = 'https://code.jquery.com/qunit/qunit-2.19.3.js';
+document.head.appendChild(script);
+
+
+// Ensure QUnit is loaded before running the tests
+script.onload = function() {
+  QUnit.start(); // Start QUnit once the script is loaded
+};
+
 function runTestCase(testCaseNumber, input, expectedOutput, expectedMessage, expectedResult) {
   QUnit.test("TC " + testCaseNumber, function(assert) {
     assert.propEqual(convertRomanToInteger(input), {value: expectedOutput, message: expectedMessage, result: expectedResult}, "TC " + testCaseNumber);
