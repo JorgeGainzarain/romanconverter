@@ -172,7 +172,7 @@ function lessThan9(num, mapping) {
   }
 };
 
-const greaterThan9(num, mapping) {
+function greaterThan9(num, mapping) {
   if (num >= 10 && num < 50) {
     if (num === 10) {
       return mapping[10];
