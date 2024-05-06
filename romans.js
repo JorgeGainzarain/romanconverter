@@ -203,6 +203,6 @@ function init() {
 }
 
 
-exports.convertRomanToInteger = convertRomanToInteger;
-exports.convertIntegerToRoman = convertIntegerToRoman;
+module.exports.convertRomanToInteger = convertRomanToInteger;
+module.exports.convertIntegerToRoman = convertIntegerToRoman;
 
