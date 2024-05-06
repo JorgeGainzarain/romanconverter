@@ -26,14 +26,17 @@ function init() {
   // 2 - Write the UI output (outputArea.innerHTML)
   // 3 - Show error messages
   // This is cleaner and also removes code duplications
-  convertButton.addEventListener("click", function clickManager() {
+
+  function clickManager() {
     let convertion = modeCheckbox.checked ? convertIntegerToRoman(inputArea.value) : convertRomanToInteger(inputArea.value);
     if (convertion.result) {
       outputArea.innerHTML = convertion.value;
     } else {
       alert(convertion.message);
     }
-  });
+  }
+  
+  convertButton.addEventListener("click", clickManager );
 
   function convertRomanToInteger(roman) {
     let response = {
