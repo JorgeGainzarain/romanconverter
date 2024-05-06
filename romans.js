@@ -164,15 +164,11 @@ function lessThan9(num, mapping) {
   if (num === 9) {
     return mapping[1] + mapping[10];
   } else if (num >= 5 && num < 9) {
-    return mapping[5] + mapping[1].repeat(num % 5);
+    return mapping[5] + repeatString(mapping[1],(num % 5));
   } else if (num === 4) {
     return mapping[1] + mapping[5];
-  } else if (num === 1) {
-    return mapping[1];
-  } else if (num > 0) {
-    return mapping[1].repeat(num);
   } else {
-    return ''; // Return an empty string for 0
+    return repeatString(mapping[1],num);
   }
 }
 
@@ -185,7 +181,7 @@ function greaterThan9(num, mapping) {
     if (num === 40) {
       return mapping[10] + mapping[50];
     } else {
-      return mapping[10].repeat(parseInt(num / 10));
+      return repeatString(mapping[10],parseInt(num / 10));
     }
   } else if (num >= 50 && num < 100) {
     if (num === 50) {
@@ -195,7 +191,7 @@ function greaterThan9(num, mapping) {
     if (num === 90) {
       return mapping[10] + mapping[100];
     } else {
-      return mapping[50] + mapping[10].repeat(parseInt((num - 50) / 10));
+      return mapping[50] + repeatString(mapping[10],parseInt((num - 50) / 10));
     }
   } else if (num >= 100 && num < 500) {
     if (num === 100) {
@@ -205,7 +201,7 @@ function greaterThan9(num, mapping) {
     if (num === 400) {
       return mapping[100] + mapping[500];
     } else {
-      return mapping[100].repeat(parseInt(num / 100));
+      return repeatString(mapping[100],parseInt(num / 100));
     }
   } else if (num >= 500 && num < 1000) {
     if (num === 500) {
@@ -215,13 +211,19 @@ function greaterThan9(num, mapping) {
     if (num === 900) {
       return mapping[100] + mapping[1000];
     } else {
-      return mapping[500] + mapping[100].repeat(parseInt((num - 500) / 100));
+      return mapping[500] + repeatString(mapping[100],parseInt((num - 500) / 100));
     }
   } else if (num >= 1000 && num < 5000) {
     if (num === 1000) {
       return mapping[1000];
     }
 
-    return mapping[1000].repeat(parseInt(num / 1000));
+    return repeatString(mapping[1000],parseInt(num / 1000));
   }
+
+  // Custom function to repeat a string 'str' 'n' times
+  function repeatString(str, n) {
+      return new Array(n + 1).join(str);
+  }
+  
 };
