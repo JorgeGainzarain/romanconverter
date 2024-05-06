@@ -1,5 +1,5 @@
 // Your Node.js file
-const { convertRomanToInteger, convertIntegerToRoman } = require('./romans.js');
+const romans = require('./romans.js');
 
 
 // Roman to int cases
