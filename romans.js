@@ -28,14 +28,20 @@ function init() {
   // 3 - Show error messages
   // This is cleaner and also removes code duplications
   convertButton.addEventListener("click", function() {
-    let inputValue = inputArea.value;
-    let convertion = modeCheckbox.checked ? convertIntegerToRoman(inputValue) : convertRomanToInteger(inputValue);
-    if (convertion.result) {
-      outputArea.innerHTML = convertion.value;
-    } else {
-      alert(convertion.message);
-    }
-  });
+  let inputValue = inputArea.value;
+  let convertion;
+  
+  if (modeCheckbox.checked) {
+    convertion = convertIntegerToRoman(inputValue);
+  } else {
+    convertion = convertRomanToInteger(inputValue);
+  }
+
+  if (convertion.result) {
+    outputArea.innerHTML = convertion.value;
+  } else {
+    alert(convertion.message);
+  }
 
 };
 
