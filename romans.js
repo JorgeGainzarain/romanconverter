@@ -27,8 +27,7 @@ function init() {
   // 3 - Show error messages
   // This is cleaner and also removes code duplications
   convertButton.addEventListener("click", function() {
-    let inputValue = inputArea.value;
-    let convertion = modeCheckbox.checked ? convertIntegerToRoman(inputValue) : convertRomanToInteger(inputValue);
+    let convertion = modeCheckbox.checked ? convertIntegerToRoman(inputArea.value) : convertRomanToInteger(inputArea.value);
     if (convertion.result) {
       outputArea.innerHTML = convertion.value;
     } else {
