@@ -1,5 +1,6 @@
 // Roman to int cases
-
+const convertRomanToInteger = require("romans.js").convertROmanToInteger;
+const convertIntegerToRoman = require("romans.js").convertIntegerToRoman;
 // Valid
 
 test("TC-1", function(assert) {
