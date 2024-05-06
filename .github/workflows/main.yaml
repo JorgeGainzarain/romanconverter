@@ -20,6 +20,6 @@ jobs:
     - name: Install dependencies
       run: npm install
     - name: Run tests
-      run: npm test
+      run: node tests.js
       env:
         CI: true
