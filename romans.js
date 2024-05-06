@@ -13,13 +13,13 @@ function init() {
   var inputArea = document.querySelector("input[type='text']");
 
 
-  modeCheckbox.addEventListener("change", (e) => {
+  modeCheckbox.addEventListener("change", function(e) {
     header.innerHTML = getModeTitle(e.target.checked);
   });
 
-  const getModeTitle = (integerToRoman) => {
+  function getModeTitle(integerToRoman) {
     return integerToRoman ? "Integer To Roman" : "Roman To Integer";
-  };
+}
 
   // Now, the convertion operation does only perform the operation. 
   // Things we have extracted to this listener: 
@@ -27,7 +27,7 @@ function init() {
   // 2 - Write the UI output (outputArea.innerHTML)
   // 3 - Show error messages
   // This is cleaner and also removes code duplications
-  convertButton.addEventListener("click", () => {
+  convertButton.addEventListener("click", function() {
     let inputValue = inputArea.value;
     let convertion = modeCheckbox.checked ? convertIntegerToRoman(inputValue) : convertRomanToInteger(inputValue);
     if (convertion.result) {
@@ -44,7 +44,7 @@ function init() {
   // On top of that, they return a JSON object instead of updating the
   // UI directly. The JSON object contains the result (ok/nok), the value
   // and an error message if needed
-  const convertRomanToInteger = (roman) => {
+  function convertRomanToInteger(roman) {
 
     let response = {
       value: 0, 
@@ -104,7 +104,7 @@ function init() {
   // On top of that, they return a JSON object instead of updating the
   // UI directly. The JSON object contains the result (ok/nok), the value
   // and an error message if needed
-  const convertIntegerToRoman = (num) => {
+  function convertIntegerToRoman(num) {
 
     let response = {
       value: 0,
@@ -160,7 +160,7 @@ function init() {
     return response;
   };
 
-  const lessThan9 = (num, obj) => {
+  function lessThan9(num, obj) {
     if (num === 9) {
       return obj[1] + obj[10];
     } else if (num >= 5 && num < 9) {
@@ -172,7 +172,7 @@ function init() {
     }
   };
 
-  const greaterThan9 = (num, obj) => {
+  const greaterThan9 (num, obj) {
     if (num >= 10 && num < 50) {
       if (num === 10) {
         return obj[10];
