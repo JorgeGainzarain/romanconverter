@@ -57,9 +57,9 @@ test("TC 14", function(assert) {
   assert.propEqual(convertIntegerToRoman(999), {value: "CMXCIX", message: "", result: true}, "TC 14");
 });
 
-//test("TC 15", function(assert) {
-//  assert.propEqual(convertIntegerToRoman(3999), {value: "MMMCMXCIX", message: "", result: true}, "TC 15");
-//});
+test("TC 15", function(assert) {
+  assert.propEqual(convertIntegerToRoman(3999), {value: "MMMCMXCIX", message: "", result: true}, "TC 15");
+});
 
 // Not Valid
 
