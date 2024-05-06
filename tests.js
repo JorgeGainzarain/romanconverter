@@ -1,6 +1,6 @@
 function runTestCase(testCaseNumber, input, expectedOutput, expectedMessage, expectedResult) {
-  test(`TC-${testCaseNumber}`, function(assert) {
-    assert.propEqual(convertRomanToInteger(input), {value: expectedOutput, message: expectedMessage, result: expectedResult}, `TC-${testCaseNumber}`);
+  QUnit.test("TC " + testCaseNumber, function(assert) {
+    assert.propEqual(convertRomanToInteger(input), {value: expectedOutput, message: expectedMessage, result: expectedResult}, "TC " + testCaseNumber);
   });
 }
 
