@@ -41,9 +41,9 @@ test("TC 10", function(assert) {
 
 // Valid
 
-//test("TC 11", function(assert) {
-//  assert.propEqual(convertIntegerToRoman(1), {value: "I", message: "", result: true}, "TC 11");
-//});
+test("TC 11", function(assert) {
+  assert.propEqual(convertIntegerToRoman(1), {value: "I", message: "", result: true}, "TC 11");
+});
 
 test("TC 12", function(assert) {
   assert.propEqual(convertIntegerToRoman(9), {value: "IX", message: "", result: true}, "TC 12");
