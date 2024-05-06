@@ -30,8 +30,8 @@ jobs:
         run: | 
           npm install --save-dev node-qunit-phantomjs
           npm install --save-dev qunit
-      - name: Run tests
-        run: node tests.js
+      - name: Run QUnit tests
+        run: node_modules/node-qunit-phantomjs/bin/node-qunit-phantomjs test.html
 
   build:
     needs: [setup, test]
