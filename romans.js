@@ -27,8 +27,8 @@ function init() {
   // 3 - Show error messages
   // This is cleaner and also removes code duplications
 
-  function clickManager() {
-    let convertion = modeCheckbox.checked ? convertIntegerToRoman(inputArea.value) : convertRomanToInteger(inputArea.value);
+  function clickManager(idk) {
+    var convertion = modeCheckbox.checked ? convertIntegerToRoman(inputArea.value) : convertRomanToInteger(inputArea.value);
     if (convertion.result) {
       outputArea.innerHTML = convertion.value;
     } else {
