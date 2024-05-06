@@ -1,5 +1,9 @@
+// Your Node.js file
+const { convertRomanToInteger, convertIntegerToRoman } = require('./romans.js');
+
+
 // Roman to int cases
-import { convertRomanToInteger, convertIntegerToRoman } from './romans.js';
+
 // Valid
 
 test("TC-1", function(assert) {
