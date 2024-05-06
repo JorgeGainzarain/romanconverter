@@ -27,19 +27,19 @@ function init() {
   // 3 - Show error messages
   // This is cleaner and also removes code duplications
 
-  function clickManager(idk) {
+  
+  
+  convertButton.addEventListener("click", function() {
     var convertion = modeCheckbox.checked ? convertIntegerToRoman(inputArea.value) : convertRomanToInteger(inputArea.value);
     if (convertion.result) {
       outputArea.innerHTML = convertion.value;
     } else {
       alert(convertion.message);
     }
-  }
-  
-  convertButton.addEventListener("click", clickManager );
+  } );
 
   function convertRomanToInteger(roman) {
-    let response = {
+    var response = {
       value: 0, 
       message: '',
       result: false 
@@ -57,9 +57,9 @@ function init() {
       return response;
     }
 
-    let arr = ["I", "V", "X", "L", "C", "D", "M"];
+    var arr = ["I", "V", "X", "L", "C", "D", "M"];
 
-    let values = {
+    var values = {
       I: 1,
       V: 5,
       X: 10,
@@ -69,10 +69,10 @@ function init() {
       M: 1000,
     };
 
-    let sum = 0;
-    let prevIndex = 0;
+    var sum = 0;
+    var prevIndex = 0;
 
-    for (let i = roman.length - 1; i >= 0; i--) {
+    for (var i = roman.length - 1; i >= 0; i--) {
       if (arr.indexOf(roman[i]) >= prevIndex) {
         sum = sum + values[roman[i]];
       } else {
@@ -89,7 +89,7 @@ function init() {
   }
 
   function convertIntegerToRoman(num) {
-    let response = {
+    var response = {
       value: 0,
       message: '', 
       result: false 
@@ -118,10 +118,10 @@ function init() {
       1000: "M",
     };
 
-    let count = 1;
-    let str = "";
+    var count = 1;
+    var str = "";
     while (num > 0) {
-      let last = parseInt(num % 10);
+      var last = parseInt(num % 10);
       last *= count;
       if (last < 10) {
         str += lessThan9(last, mapping);
