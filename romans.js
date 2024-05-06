@@ -38,7 +38,7 @@ function init() {
     }
   } );
 
-  function convertRomanToInteger(roman) {
+  export function convertRomanToInteger(roman) {
     var response = {
       value: 0, 
       message: '',
@@ -88,7 +88,7 @@ function init() {
     return response;
   }
 
-  function convertIntegerToRoman(num) {
+  export function convertIntegerToRoman(num) {
     var response = {
       value: 0,
       message: '', 
@@ -201,3 +201,4 @@ function init() {
     }
   }
 }
+
