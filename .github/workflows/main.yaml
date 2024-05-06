@@ -7,11 +7,11 @@ jobs:
   setup:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v1
         with:
-          node-version: '14'
+          node-version: 10.x
       - name: Set working directory
         run: cd /home/runner/work/romanconverter/romanconverter
       - name: Install dependencies
