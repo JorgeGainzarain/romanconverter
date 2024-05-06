@@ -169,8 +169,10 @@ function lessThan9(num, mapping) {
     return mapping[1] + mapping[5];
   } else if (num === 1) {
     return mapping[1];
-  } else {
+  } else if (num > 0) {
     return mapping[1].repeat(num);
+  } else {
+    return ''; // Return an empty string for 0
   }
 }
 
