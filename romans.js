@@ -160,6 +160,11 @@ function convertIntegerToRoman(num) {
   return response;
 };
 
+  // Custom function to repeat a string 'str' 'n' times
+  function repeatString(str, n) {
+      return new Array(n + 1).join(str);
+  }
+
 function lessThan9(num, mapping) {
   if (num === 9) {
     return mapping[1] + mapping[10];
@@ -219,11 +224,6 @@ function greaterThan9(num, mapping) {
     }
 
     return repeatString(mapping[1000],parseInt(num / 1000));
-  }
-
-  // Custom function to repeat a string 'str' 'n' times
-  function repeatString(str, n) {
-      return new Array(n + 1).join(str);
   }
   
 };
