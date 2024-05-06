@@ -177,26 +177,51 @@ function lessThan9(num, mapping) {
 }
 
 function greaterThan9(num, mapping) {
-  if (num >= 1000) {
-    return mapping[1000].repeat(Math.floor(num / 1000)) + greaterThan9(num % 1000, mapping);
-  } else if (num >= 900) {
-    return mapping[100] + mapping[1000] + greaterThan9(num % 900, mapping);
-  } else if (num >= 500) {
-    return mapping[500] + greaterThan9(num % 500, mapping);
-  } else if (num >= 400) {
-    return mapping[100] + mapping[500] + greaterThan9(num % 400, mapping);
-  } else if (num >= 100) {
-    return mapping[100].repeat(Math.floor(num / 100)) + greaterThan9(num % 100, mapping);
-  } else if (num >= 90) {
-    return mapping[10] + mapping[100] + greaterThan9(num % 90, mapping);
-  } else if (num >= 50) {
-    return mapping[50] + greaterThan9(num % 50, mapping);
-  } else if (num >= 40) {
-    return mapping[10] + mapping[50] + greaterThan9(num % 40, mapping);
-  } else if (num >= 10) {
-    return mapping[10].repeat(Math.floor(num / 10)) + greaterThan9(num % 10, mapping);
-  } else {
-    return mapping[num];
+  if (num >= 10 && num < 50) {
+    if (num === 10) {
+      return mapping[10];
+    }
+
+    if (num === 40) {
+      return mapping[10] + mapping[50];
+    } else {
+      return mapping[10].repeat(parseInt(num / 10));
+    }
+  } else if (num >= 50 && num < 100) {
+    if (num === 50) {
+      return mapping[50];
+    }
+
+    if (num === 90) {
+      return mapping[10] + mapping[100];
+    } else {
+      return mapping[50] + mapping[10].repeat(parseInt((num - 50) / 10));
+    }
+  } else if (num >= 100 && num < 500) {
+    if (num === 100) {
+      return mapping[100];
+    }
+
+    if (num === 400) {
+      return mapping[100] + mapping[500];
+    } else {
+      return mapping[100].repeat(parseInt(num / 100));
+    }
+  } else if (num >= 500 && num < 1000) {
+    if (num === 500) {
+      return mapping[500];
+    }
+
+    if (num === 900) {
+      return mapping[100] + mapping[1000];
+    } else {
+      return mapping[500] + mapping[100].repeat(parseInt((num - 500) / 100));
+    }
+  } else if (num >= 1000 && num < 5000) {
+    if (num === 1000) {
+      return mapping[1000];
+    }
+
+    return mapping[1000].repeat(parseInt(num / 1000));
   }
-}
 };
