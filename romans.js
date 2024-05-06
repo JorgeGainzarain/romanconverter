@@ -44,7 +44,7 @@ function init() {
 // On top of that, they return a JSON object instead of updating the
 // UI directly. The JSON object contains the result (ok/nok), the value
 // and an error message if needed
-function convertRomanToInteger(roman) {
+const convertRomanToInteger(roman) {
 
   var response = {
     value: 0, 
@@ -104,7 +104,7 @@ function convertRomanToInteger(roman) {
 // On top of that, they return a JSON object instead of updating the
 // UI directly. The JSON object contains the result (ok/nok), the value
 // and an error message if needed
-function convertIntegerToRoman(num) {
+const convertIntegerToRoman(num) {
 
   var response = {
     value: 0,
