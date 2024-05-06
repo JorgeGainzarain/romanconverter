@@ -202,7 +202,7 @@ function init() {
   }
 }
 
-module.export {
+module.exports = {
   convertRomanToInteger,
   convertIntegerToRoman
 }
