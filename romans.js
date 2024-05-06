@@ -197,9 +197,6 @@ function init() {
         return obj[1000];
       }
 
-      module.exports.convertRomanToInteger = convertRomanToInteger;
-      module.exports.convertIntegerToRoman = convertIntegerToRoman;
-
       return obj[1000].repeat(parseInt(num / 1000));
     }
   }
