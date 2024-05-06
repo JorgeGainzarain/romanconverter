@@ -3,10 +3,9 @@ name: Node.js CI
 on: [push]
 
 jobs:
-  build:
 
+  setup:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
       - name: Set up Node.js
@@ -14,18 +13,13 @@ jobs:
         with:
           node-version: '14'
       - name: Set working directory
-        run: cd path/to/your/project/directory
+        run: cd /home/runner/work/romanconverter/romanconverter
       - name: Install dependencies
         run: npm install
-      - name: Build and test
-        run: |
-          npm run build --if-present
-          npm test
 
   test:
-
+    needs: setup
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js
@@ -36,3 +30,17 @@ jobs:
       - run: node tests.js
       - name: Run QUnit tests
         run: node_modules/node-qunit-phantomjs/bin/node-qunit-phantomjs tests.html
+
+  build:
+    needs: [setup, test]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '14'
+      - name: Build and test
+        run: |
+          npm run build --if-present
+          npm test
