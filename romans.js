@@ -160,7 +160,7 @@ function convertIntegerToRoman(num) {
   return response;
 };
 
-const lessThan9 = (num, mapping) => {
+function lessThan9(num, mapping) {
   if (num === 9) {
     return mapping[1] + mapping[10];
   } else if (num >= 5 && num < 9) {
@@ -172,7 +172,7 @@ const lessThan9 = (num, mapping) => {
   }
 };
 
-const greaterThan9 = (num, mapping) => {
+const greaterThan9(num, mapping) {
   if (num >= 10 && num < 50) {
     if (num === 10) {
       return mapping[10];
