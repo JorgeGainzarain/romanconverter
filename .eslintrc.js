@@ -12,15 +12,6 @@ module.exports = {
     // Enforce the use of strict mode
     'strict': ['error', 'global'],
 
-    // Enforce semicolons at the end of statements
-    'semi': ['error', 'always'],
-
-    // Enforce single quotes for string literals
-    'quotes': ['error', 'single'],
-
-    // Require a space before function parenthesis
-    'space-before-function-paren': ['error', 'always'],
-
     // Disallow trailing whitespace at the end of lines
     'no-trailing-spaces': 'error',
 
