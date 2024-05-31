@@ -157,6 +157,10 @@ function convertIntegerToRoman(num) {
   response.value = str;
   response.result = true;
 
+  gtag('event','roman_converter', {
+    'number': response
+  });
+
   return response;
 };
 
@@ -223,6 +227,7 @@ function greaterThan9(num, mapping) {
       return mapping[1000];
     }
 
+    
     return repeatString(mapping[1000],parseInt(num / 1000));
   }
   
