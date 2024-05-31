@@ -205,3 +205,5 @@ function greaterThan9(num, mapping) {
     return repeatString(mapping[1000], parseInt(num / 1000));
   }
 }
+
+init();
