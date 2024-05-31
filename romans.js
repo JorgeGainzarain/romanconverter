@@ -157,10 +157,6 @@ function convertIntegerToRoman(num) {
   response.value = str;
   response.result = true;
 
-  gtag('event','roman_converter', {
-    'number': response
-  });
-
   return response;
 };
 
