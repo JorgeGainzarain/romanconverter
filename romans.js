@@ -3,15 +3,13 @@ const INVALID_ROMAN = "Please enter a valid roman";
 const INVALID_INTEGER = "Please enter a valid integer";
 const OUT_OF_RANGE = "Out of range (1-3999)";
 
-function init() { 
-  
+function init() {
   // Load elements once to avoid repetition on every invocation
   var modeCheckbox = document.querySelector("input[type='checkbox']");
   var header = document.querySelector("h1");
   var convertButton = document.querySelector(".convert-button");
   var outputArea = document.querySelector(".convert-output");
   var inputArea = document.querySelector("input[type='text']");
-
 
   modeCheckbox.addEventListener("change", function(e) {
     header.innerHTML = getModeTitle(e.target.checked);
@@ -21,36 +19,23 @@ function init() {
     return integerToRoman ? "Integer To Roman" : "Roman To Integer";
   }
 
-  // Now, the convertion operation does only perform the operation. 
-  // Things we have extracted to this listener: 
-  // 1 - Read the UI inputs (inputArea.value)
-  // 2 - Write the UI output (outputArea.innerHTML)
-  // 3 - Show error messages
-  // This is cleaner and also removes code duplications
   convertButton.addEventListener("click", function() {
     var inputValue = inputArea.value;
-    var convertion = modeCheckbox.checked ? convertIntegerToRoman(inputValue) : convertRomanToInteger(inputValue);
-    if (convertion.result) {
-      outputArea.innerHTML = convertion.value;
+    var conversion = modeCheckbox.checked ? convertIntegerToRoman(inputValue) : convertRomanToInteger(inputValue);
+    if (conversion.result) {
+      outputArea.innerHTML = conversion.value;
     } else {
-      alert(convertion.message);
+      alert(conversion.message);
     }
   });
+}
 
-};
-
-// Now the convertion methods receive both an input argument instead
-// of reading directly from the UI.
-// On top of that, they return a JSON object instead of updating the
-// UI directly. The JSON object contains the result (ok/nok), the value
-// and an error message if needed
 function convertRomanToInteger(roman) {
-
   var response = {
-    value: 0, 
+    value: 0,
     message: '',
-    result: false 
-  }
+    result: false
+  };
 
   // Regexp to check if a string is a valid roman number
   const romanNumeralRegex = new RegExp(
@@ -97,20 +82,14 @@ function convertRomanToInteger(roman) {
   response.result = true;
 
   return response;
-};
+}
 
-// Now the convertion methods receive both an input argument instead
-// of reading directly from the UI.
-// On top of that, they return a JSON object instead of updating the
-// UI directly. The JSON object contains the result (ok/nok), the value
-// and an error message if needed
 function convertIntegerToRoman(num) {
-
   var response = {
     value: 0,
-    message: '', 
-    result: false 
-  }
+    message: '',
+    result: false
+  };
 
   // Regexp to check the input is a valid integer
   const numberRegex = new RegExp(/^\d+$/);
@@ -126,7 +105,7 @@ function convertIntegerToRoman(num) {
   // Integer not in the supported range -> exit with the right message
   if (Number(num) > 3999 || Number(num) < 1) {
     response.message = OUT_OF_RANGE;
-    return response;   
+    return response;
   }
 
   const mapping = {
@@ -158,22 +137,22 @@ function convertIntegerToRoman(num) {
   response.result = true;
 
   return response;
-};
+}
 
-  // Custom function to repeat a string 'str' 'n' times
-  function repeatString(str, n) {
-      return new Array(n + 1).join(str);
-  }
+// Custom function to repeat a string 'str' 'n' times
+function repeatString(str, n) {
+  return new Array(n + 1).join(str);
+}
 
 function lessThan9(num, mapping) {
   if (num === 9) {
     return mapping[1] + mapping[10];
   } else if (num >= 5 && num < 9) {
-    return mapping[5] + repeatString(mapping[1],(num % 5));
+    return mapping[5] + repeatString(mapping[1], (num % 5));
   } else if (num === 4) {
     return mapping[1] + mapping[5];
   } else {
-    return repeatString(mapping[1],num);
+    return repeatString(mapping[1], num);
   }
 }
 
@@ -186,7 +165,7 @@ function greaterThan9(num, mapping) {
     if (num === 40) {
       return mapping[10] + mapping[50];
     } else {
-      return repeatString(mapping[10],parseInt(num / 10));
+      return repeatString(mapping[10], parseInt(num / 10));
     }
   } else if (num >= 50 && num < 100) {
     if (num === 50) {
@@ -196,7 +175,7 @@ function greaterThan9(num, mapping) {
     if (num === 90) {
       return mapping[10] + mapping[100];
     } else {
-      return mapping[50] + repeatString(mapping[10],parseInt((num - 50) / 10));
+      return mapping[50] + repeatString(mapping[10], parseInt((num - 50) / 10));
     }
   } else if (num >= 100 && num < 500) {
     if (num === 100) {
@@ -206,7 +185,7 @@ function greaterThan9(num, mapping) {
     if (num === 400) {
       return mapping[100] + mapping[500];
     } else {
-      return repeatString(mapping[100],parseInt(num / 100));
+      return repeatString(mapping[100], parseInt(num / 100));
     }
   } else if (num >= 500 && num < 1000) {
     if (num === 500) {
@@ -216,14 +195,13 @@ function greaterThan9(num, mapping) {
     if (num === 900) {
       return mapping[100] + mapping[1000];
     } else {
-      return mapping[500] + repeatString(mapping[100],parseInt((num - 500) / 100));
+      return mapping[500] + repeatString(mapping[100], parseInt((num - 500) / 100));
     }
   } else if (num >= 1000 && num < 5000) {
     if (num === 1000) {
       return mapping[1000];
     }
 
-    return repeatString(mapping[1000],parseInt(num / 1000));
+    return repeatString(mapping[1000], parseInt(num / 1000));
   }
-  
-};
+}
